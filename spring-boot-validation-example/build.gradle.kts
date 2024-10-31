@@ -15,6 +15,7 @@ java {
 }
 
 repositories {
+	mavenLocal()
 	mavenCentral()
 }
 
@@ -23,8 +24,8 @@ dependencies {
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 
-	implementation("com.github.erosb:openapi-operation-validator:2.0.0-RC1")
-	implementation("com.github.erosb:openapi-operation-servlet:2.0.0-RC1")
+	implementation("com.github.erosb:openapi-operation-validator:0.0.0-SNAPSHOT")
+	implementation("com.github.erosb:openapi-operation-servlet:0.0.0-SNAPSHOT")
 
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")

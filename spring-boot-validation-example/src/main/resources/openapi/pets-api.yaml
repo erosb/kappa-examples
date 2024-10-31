@@ -16,13 +16,18 @@ components:
       type: object
       additionalProperties: false
       required:
-        - id
+        - name
         - owner
       properties:
         name:
           $ref: "#/components/schemas/Name"
         owner:
           $ref: "./common-types.yaml#/UserIdentifier"
+        birthDate:
+          type: string
+          format: date
+      propertyNames:
+        enum: [ "owner", "name", "birthDate" ]
     Name:
       type: string
       minLength: 1
