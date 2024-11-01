@@ -10,6 +10,7 @@ import jakarta.servlet.Filter
 import jakarta.servlet.FilterChain
 import jakarta.servlet.ServletRequest
 import jakarta.servlet.ServletResponse
+import jakarta.servlet.annotation.WebFilter
 import jakarta.servlet.http.HttpServletRequest
 import jakarta.servlet.http.HttpServletResponse
 
@@ -26,10 +27,26 @@ class OpenApiBackedRequestValidationFilter : Filter {
         chain as FilterChain
 
         try {
-            val cachedReq = MemoizingServletRequest(req)
-            RequestValidator(api).validate(JakartaServletRequest.of(cachedReq))
-            chain.doFilter(cachedReq, resp)
+            // we need to wrap the original request instance into a MemoizingServletRequest,
+            // since we will need to parse the request body twice: once for the OpenAPI-validation
+            // and once for the jackson parsing.
+            // basic HttpServletRequests cannot be read twice, hence we use the MemoizingServletRequest shipped with Kappa
+            // more here: https://www.baeldung.com/spring-reading-httpservletrequest-multiple-times
+            val memoizedReq = MemoizingServletRequest(req)
+
+            // Kappa can understand different representations of HTTP requests and responses
+            // here we use the Servlet API specific adapter of Kappa, to get a Kappa Request instance
+            // which wraps a HttpServletRequest
+            val jakartaRequest = JakartaServletRequest.of(memoizedReq)
+
+            // we do the validation
+            RequestValidator(api).validate(jakartaRequest)
+
+            // if no request validation error was found, we proceed with the request execution
+            chain.doFilter(memoizedReq, resp)
         } catch (ex: ValidationException) {
+            // if the request validation failed, we represents the validation failures in a simple
+            // json response and send it back to the client
             val objectMapper = ObjectMapper()
             val respObj = objectMapper.createObjectNode()
             val itemsJson = objectMapper.createArrayNode()

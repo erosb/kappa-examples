@@ -24,8 +24,7 @@ dependencies {
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 
-	implementation("com.github.erosb:openapi-operation-validator:0.0.0-SNAPSHOT")
-	implementation("com.github.erosb:openapi-operation-servlet:0.0.0-SNAPSHOT")
+	implementation("com.github.erosb:kappa-servlet-adapter:2.0.0-RC6")
 
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
