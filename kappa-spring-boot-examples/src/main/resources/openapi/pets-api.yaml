@@ -3,7 +3,7 @@ info:
   title: "Pets API"
   version: 0.0.1
 paths:
-  /api/pet:
+  /api/pets:
     post:
       requestBody:
         content:
