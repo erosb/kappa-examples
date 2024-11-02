@@ -22,7 +22,7 @@ class CreatePetRequest{
 public class PetController {
 
     @PostMapping
-    public void createPet(@RequestBody CreatePetRequest requestBody) {
+    void createPet(@RequestBody CreatePetRequest requestBody) {
 
     }
 }
