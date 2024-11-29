@@ -23,6 +23,6 @@ public class PetController {
 
     @PostMapping
     void createPet(@RequestBody CreatePetRequest requestBody) {
-
+        System.out.println("requestBody = " + requestBody);
     }
 }
