@@ -1,0 +1,39 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+type: array
+minItems: 1
+items:
+  $ref: "#/$defs/Address"
+contains:
+  properties:
+    defaultShippingAddress:
+      const: true
+maxContains: 1
+$defs:
+  Address:
+    type: object
+    additionalProperties: false
+    properties:
+      country:
+        $ref: "../common-types.yaml#/CountryCode"
+      state:
+        type: string
+      city:
+        type: string
+      zipCode:
+        type: integer
+        minimum: 1000
+        maximum: 9999
+      defaultShippingAddress:
+        type: boolean
+    required:
+      - country
+      - city
+      - zipCode
+      - defaultShippingAddress
+    if:
+      properties:
+        country:
+          const: US
+    then:
+      required:
+        - state

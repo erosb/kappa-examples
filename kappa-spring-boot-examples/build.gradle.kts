@@ -20,7 +20,7 @@ repositories {
 }
 
 dependencies {
-	implementation("com.github.erosb:kappa-servlet-adapter:0.0.0-SNAPSHOT")
+	implementation("com.github.erosb:kappa-spring:2.0.0-RC10")
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("org.springframework.boot:spring-boot-starter-validation")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")

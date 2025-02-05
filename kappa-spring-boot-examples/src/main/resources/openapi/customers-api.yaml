@@ -1,0 +1,34 @@
+openapi: "3.1.0"
+info:
+  title: "Customers API"
+  version: 0.0.1
+paths:
+  /api/customers:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "./schemas/CreateCustomerRequest.yaml"
+      responses:
+        '201':
+          description: created
+  /api/customers/{id}/addresses:
+    parameters:
+      - $ref: "#/components/parameters/CustomerId"
+    put:
+      requestBody:
+        content:
+          application/json:
+            $ref: "./schemas/AddressList.yaml"
+      responses:
+        '200':
+          description: address list is successfully updated
+components:
+  parameters:
+    CustomerId:
+      name: id
+      in: path
+      schema:
+        type: integer
+#        $ref: "../common-types.yaml#/Id"

@@ -1,6 +1,10 @@
 Id:
   type: integer
   minimum: 0
+CountryCode:
+  type: string
+  minLength: 2
+  maxLength: 2
 UserIdentifier:
   type: object
   properties:
