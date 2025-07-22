@@ -10,6 +10,15 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/CreatePetRequest"
+    get:
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Pet"
 components:
   schemas:
     CreatePetRequest:
@@ -29,3 +38,28 @@ components:
     Name:
       type: string
       minLength: 1
+    Pet:
+      type: object
+      additionalProperties: false
+      required:
+        - id
+        - name
+      properties:
+        id:
+          type: integer
+        name:
+          $ref: "#/components/schemas/Name"
+        owner:
+          type: object
+          additionalProperties: false
+          required:
+            - id
+            - name
+          properties:
+            id:
+              type: integer
+            name:
+              $ref: "#/components/schemas/Name"
+        birthDate:
+          type: string
+          format: date
