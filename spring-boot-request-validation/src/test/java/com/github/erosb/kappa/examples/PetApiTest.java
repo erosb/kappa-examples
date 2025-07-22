@@ -42,25 +42,25 @@ public class PetApiTest {
                 {
                   "errors": [
                     {
-                      "dataLocation": "$request.body#/type",
+                      "dataLocation": "$request.body#/type (line 3, position 17)",
                       "schemaLocation": "openapi/pets-api.yaml#/components/schemas/CreatePetRequest/additionalProperties",
                       "dynamicPath": "#/$ref/additionalProperties/false",
                       "message": "false schema always fails"
                     },
                     {
-                      "dataLocation": "$request.body#/name",
+                      "dataLocation": "$request.body#/name (line 2, position 17)",
                       "schemaLocation": "openapi/pets-api.yaml#/components/schemas/Name/type",
                       "dynamicPath": "#/$ref/properties/name/$ref/type",
                       "message": "expected type: string, actual: null"
                     },
                     {
-                      "dataLocation": "$request.body#/owner/id",
+                      "dataLocation": "$request.body#/owner/id (line 5, position 19)",
                       "schemaLocation": "openapi/common-types.yaml#/Id",
                       "dynamicPath": "#/$ref/properties/owner/$ref/properties/id/$ref/minimum",
                       "message": "-5 is lower than minimum 0"
                     },
                     {
-                      "dataLocation": "$request.body#/birthDate",
+                      "dataLocation": "$request.body#/birthDate (line 7, position 22)",
                       "schemaLocation": "openapi/pets-api.yaml#/components/schemas/CreatePetRequest/properties/birthDate/format",
                       "dynamicPath": "#/$ref/properties/birthDate/format",
                       "message": "instance does not match format 'date'"
