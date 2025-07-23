@@ -20,8 +20,7 @@ public class KappaSpringBootRequestValidationApplication {
 	public KappaSpringConfiguration kappaConfig() {
 		var kappaConfig = new KappaSpringConfiguration();
 		var mapping = new LinkedHashMap<String, String>();
-		mapping.put("/api/pets", "/openapi/pets-api.yaml");
-		mapping.put("/api/customers/**", "/openapi/customers-api.yaml");
+		mapping.put("/**", "/openapi/pets-api.yaml");
 		kappaConfig.setOpenapiDescriptions(mapping);
 		return kappaConfig;
 	}
