@@ -10,10 +10,10 @@ import java.util.LinkedHashMap;
 
 @SpringBootApplication
 @EnableKappaRequestValidation
-public class KappaSpringBootRequestValidationApplication {
+public class KappaSpringBootExampleApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(KappaSpringBootRequestValidationApplication.class, args);
+		SpringApplication.run(KappaSpringBootExampleApplication.class, args);
 	}
 
 	@Bean
