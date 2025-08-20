@@ -1,6 +1,6 @@
 plugins {
 	java
-	id("org.springframework.boot") version "3.3.5"
+	id("org.springframework.boot") version "3.4.5"
 	id("io.spring.dependency-management") version "1.1.6"
 	id("io.github.michael-nestler.spectral") version "0.1.0-0"
 }
@@ -23,6 +23,7 @@ dependencies {
 	implementation("com.github.erosb:kappa-spring:2.0.2")
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("org.springframework.boot:spring-boot-starter-validation")
+    implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.9")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }

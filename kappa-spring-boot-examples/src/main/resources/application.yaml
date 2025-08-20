@@ -1,0 +1,6 @@
+springdoc:
+  swagger-ui:
+    urls:
+      - name: Pets API
+        url: /openapi/pets-api.yaml
+

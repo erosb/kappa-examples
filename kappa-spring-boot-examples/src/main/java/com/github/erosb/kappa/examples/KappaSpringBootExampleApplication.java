@@ -20,8 +20,9 @@ public class KappaSpringBootExampleApplication {
 	public KappaSpringConfiguration kappaConfig() {
 		var kappaConfig = new KappaSpringConfiguration();
 		var mapping = new LinkedHashMap<String, String>();
-		mapping.put("/**", "/openapi/pets-api.yaml");
+		mapping.put("/api/**", "/static/openapi/pets-api.yaml");
 		kappaConfig.setOpenapiDescriptions(mapping);
+		kappaConfig.setIgnoredPathPatterns("/swagger-ui/**", "/v3/api-docs/**", "/openapi/**");
 		return kappaConfig;
 	}
 }
