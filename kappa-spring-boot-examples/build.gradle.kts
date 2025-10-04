@@ -20,7 +20,7 @@ repositories {
 }
 
 dependencies {
-	implementation("com.github.erosb:kappa-spring:2.0.2")
+	implementation("com.github.erosb:kappa-spring:2.0.4")
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("org.springframework.boot:spring-boot-starter-validation")
     implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.9")
